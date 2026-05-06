@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favori Oyunlarim | Vedat Efendi</title>
+    
+    <!-- Oyunlar icin ozel fontlar -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@900&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+    <style>
+        /* Temel Sayfa Ayarlari */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            background-color: #000;
+            scroll-snap-type: y mandatory; /* Sayfayi kaydirinca bolumlere kilitler */
+            overflow-y: scroll;
+        }
+
+        /* Her oyun bolumu tam ekran */
+        .game-container {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            scroll-snap-align: start;
+            overflow: hidden;
+        }
+
+        /* Videolarin arka plani kaplamasi */
+        .bg-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: 1;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            filter: brightness(0.4);
+        }
+
+        /* Oyun isimleri */
+        .game-title {
+            position: relative;
+            z-index: 2;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        /* VALORANT STILI */
+        .valorant-style {
+            font-family: 'Orbitron', sans-serif;
+            color: #FF4655;
+            font-size: 8vw;
+            text-shadow: 0 0 20px rgba(255, 70, 85, 0.6);
+        }
+
+        /* ROBLOX STILI */
+        .roblox-style {
+            font-family: 'Press Start 2P', cursive;
+            color: #FFFFFF;
+            font-size: 4vw;
+            text-shadow: 4px 4px 0px #333;
+        }
+
+        /* Geri Don Butonu */
+        .back-link {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 100;
+            color: #fff;
+            text-decoration: none;
+            background: rgba(255, 95, 31, 0.5);
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="index.html" class="back-link">← GERI DON</a>
+
+    <!-- VALORANT BOLUMU -->
+    <section class="game-container">
+        <video autoplay muted loop playsinline class="bg-video">
+            <source src="valorant.mp4" type="video/mp4">
+        </video>
+        <h1 class="game-title valorant-style">VALORANT</h1>
+    </section>
+
+    <!-- ROBLOX BOLUMU -->
+    <section class="game-container">
+        <video autoplay muted loop playsinline class="bg-video">
+            <source src="roblox.mp4" type="video/mp4">
+        </video>
+        <h1 class="game-title roblox-style">ROBLOX</h1>
+    </section>
+
+    <script>
+        // Aldiginiz 'console tanimsiz' hatasini onlemek icin kontrol ekliyoruz
+        if (typeof console === "undefined") {
+            var console = { log: function () { } };
+        }
+        console.log("Sayfa basariyla yuklendi!");
+    </script>
+</body>
+</html>
